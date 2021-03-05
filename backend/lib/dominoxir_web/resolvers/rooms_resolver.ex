@@ -1,4 +1,3 @@
-defmodule DominoxirWeb.Resolvers.RoomsResolver do
 defmodule DominoxirWeb.Resolvers.Rooms do
   alias Dominoxir.RoomsAgent, as: Rooms
 
@@ -12,7 +11,9 @@ defmodule DominoxirWeb.Resolvers.Rooms do
     {:ok, Rooms.get(id)}
   end
 
-  def create(_root, %{id: id, room: %Room{} = room}, _info) do
-    {:ok, Rooms.set(id, room)}
+  def create(_root, %{name: name}, _info) do
+    id = Rooms.add name
+
+    {:ok, Rooms.get(id)}
   end
 end
