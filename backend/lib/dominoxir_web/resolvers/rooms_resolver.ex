@@ -1,4 +1,5 @@
 defmodule DominoxirWeb.Resolvers.RoomsResolver do
+defmodule DominoxirWeb.Resolvers.Rooms do
   alias Dominoxir.RoomsAgent, as: Rooms
 
   alias Dominoxir.Room

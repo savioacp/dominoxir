@@ -1,4 +1,4 @@
-defmodule DominoxirWeb.Resolvers.UsersResolver do
+defmodule DominoxirWeb.Resolvers.Users do
   import Ecto.Query, only: [from: 2]
 
   alias Dominoxir.{Repo, User, Error}
