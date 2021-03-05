@@ -12,7 +12,8 @@ defmodule DominoxirWeb.Router do
     pipe_through :api
 
     forward "/graphql", Absinthe.Plug,
-      schema: DominoxirWeb.Schema
+      schema: DominoxirWeb.Schema,
+      json_codec: Jason
 
   end
 
