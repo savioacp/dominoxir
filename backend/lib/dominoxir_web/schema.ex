@@ -1,8 +1,8 @@
 defmodule DominoxirWeb.Schema do
   use Absinthe.Schema
-  import Ecto.Query, only: [from: 2]
 
-  alias DominoxirWeb.Resolvers.{UsersResolver}
+  alias DominoxirWeb.Resolvers.{UsersResolver, RoomsResolver}
+  alias Dominoxir.{User, Error}
 
   object :user do
     field :id, :string
@@ -12,14 +12,17 @@ defmodule DominoxirWeb.Schema do
   end
 
   object :error do
-    field :message, :string
-    field :code, :string
+    field :error, :string
   end
 
   union :user_response do
     description "User query response"
 
     types [:user, :error]
+    resolve_type fn
+      %User{}, _ -> :user
+      %Error{}, _ -> :error
+    end
   end
 
   query do
@@ -32,5 +35,27 @@ defmodule DominoxirWeb.Schema do
 
       resolve &UsersResolver.get_one/3
     end
+
+
+    field :all_rooms, list_of(non_null(:room)) do
+      resolve &RoomsResolver.get_all/3
+    end
+
+    field :room, :room_response do
+      resolve &RoomsResolver.get_one/3
+    end
+  end
+
+
+  object :room do
+    field :id, :integer
+    field :name, :string
+    field :players, list_of(:user)
+  end
+
+  union :room_response do
+    description "Room query response."
+
+    types [:room, :error]
   end
 end

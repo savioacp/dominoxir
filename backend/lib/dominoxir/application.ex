@@ -14,9 +14,10 @@ defmodule Dominoxir.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Dominoxir.PubSub},
       # Start the Endpoint (http/https)
-      DominoxirWeb.Endpoint
+      DominoxirWeb.Endpoint,
       # Start a worker by calling: Dominoxir.Worker.start_link(arg)
       # {Dominoxir.Worker, arg}
+      {Dominoxir.RoomsAgent, initial_value: %{}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
