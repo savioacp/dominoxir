@@ -7,10 +7,12 @@ defmodule DominoxirWeb.Schema do
 
   import_types Schema.UserTypes
   import_types Schema.RoomTypes
+  import_types Schema.LoginTypes
 
   query do
     import_fields :user_queries
     import_fields :room_queries
+    import_fields :login_queries
   end
 
   mutation do

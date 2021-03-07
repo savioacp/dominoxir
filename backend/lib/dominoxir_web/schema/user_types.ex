@@ -31,5 +31,9 @@ defmodule DominoxirWeb.Schema.UserTypes do
 
       resolve &Users.get_one/3
     end
+
+    field :me, :user_response do
+      resolve &Users.get_me/3
+    end
   end
 end

@@ -3,6 +3,7 @@ defmodule Dominoxir.Room do
     id: nil,
     name: nil,
     game_room: nil,
+    owner: %Dominoxir.User{},
     players: []
   ]
 
@@ -10,6 +11,7 @@ defmodule Dominoxir.Room do
     id: integer,
     name: String.t(),
     game_room: pid(),
+    owner: Dominoxir.User,
     players: list(Dominoxir.User)
   }
 

@@ -3,7 +3,10 @@ defmodule DominoxirWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+
+    plug DominoxirWeb.GraphQLAuthContext
   end
+
   scope "/api", DominoxirWeb do
     pipe_through :api
   end

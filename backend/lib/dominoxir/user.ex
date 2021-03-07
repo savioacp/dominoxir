@@ -2,6 +2,8 @@ defmodule Dominoxir.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Dominoxir.{Repo, User}
+
   @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "users" do
@@ -12,6 +14,10 @@ defmodule Dominoxir.User do
     field :wins, :integer, default: 0
 
     timestamps()
+  end
+
+  def by_id(id) do
+    Repo.get(User, id)
   end
 
   def changeset(user, attrs) do

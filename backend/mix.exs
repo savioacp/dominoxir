@@ -46,7 +46,8 @@ defmodule Dominoxir.MixProject do
       {:argon2_elixir, "~> 2.4.0"},
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
-      {:absinthe_phoenix, "~> 2.0.1"}
+      {:absinthe_phoenix, "~> 2.0.1"},
+      {:guardian, "~> 2.1.1"}
     ]
   end
 

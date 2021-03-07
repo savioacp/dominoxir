@@ -22,6 +22,10 @@ config :dominoxir, DominoxirWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+config :dominoxir, DominoxirWeb.Guardian,
+  issuer: "dominoxir",
+  secret_key: "PuAGtp3SnNz89YxzgyJFcpZ4FsYAZ5vfhxxqBhWazxBc9/71aaec3k+Ri3rmvvHV"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
